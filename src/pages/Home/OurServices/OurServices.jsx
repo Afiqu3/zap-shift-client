@@ -55,6 +55,7 @@ const services = [
 const OurServices = () => {
   return (
     <div className="mt-10 p-20 bg-secondary rounded-3xl">
+        
       <div className="space-y-2 max-w-2xl mx-auto text-center">
         <h3 className="text-3xl font-extrabold text-white">Our Services</h3>
         <p className="text-white/50">
@@ -66,7 +67,7 @@ const OurServices = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-7">
         {services.map((service) => (
-          <div className={`p-7 text-center text-secondary ${service.isActive ? 'bg-primary': 'bg-white'} rounded-2xl space-y-5`}>
+          <div key={service.id} className={`p-7 text-center text-secondary ${service.isActive ? 'bg-primary': 'bg-white'} rounded-2xl space-y-5`}>
             <div className="flex justify-center">
               <img src={serviceImg} alt="" />
             </div>
