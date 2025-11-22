@@ -1,31 +1,31 @@
-import React from "react";
-import { CiDeliveryTruck } from "react-icons/ci";
-import { HiOutlineCurrencyBangladeshi } from "react-icons/hi2";
+import React from 'react';
+import { CiDeliveryTruck } from 'react-icons/ci';
+import { HiOutlineCurrencyBangladeshi } from 'react-icons/hi2';
 
 const steps = [
   {
     icon: <CiDeliveryTruck></CiDeliveryTruck>,
-    title: "Booking Pick & Drop",
+    title: 'Booking Pick & Drop',
     subtitle:
-      "From personal packages to business shipments — we deliver on time, every time.",
+      'From personal packages to business shipments — we deliver on time, every time.',
   },
   {
     icon: <HiOutlineCurrencyBangladeshi></HiOutlineCurrencyBangladeshi>,
-    title: "Cash On Delivery",
+    title: 'Cash On Delivery',
     subtitle:
-      "From personal packages to business shipments — we deliver on time, every time.",
+      'From personal packages to business shipments — we deliver on time, every time.',
   },
   {
     icon: <CiDeliveryTruck></CiDeliveryTruck>,
-    title: "Delivery Hub",
+    title: 'Delivery Hub',
     subtitle:
-      "From personal packages to business shipments — we deliver on time, every time.",
+      'From personal packages to business shipments — we deliver on time, every time.',
   },
   {
     icon: <CiDeliveryTruck></CiDeliveryTruck>,
-    title: "Booking SME & Corporate",
+    title: 'Booking SME & Corporate',
     subtitle:
-      "From personal packages to business shipments — we deliver on time, every time.",
+      'From personal packages to business shipments — we deliver on time, every time.',
   },
 ];
 
@@ -36,7 +36,10 @@ const HowItWorks = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-7">
         {steps.map((step, index) => (
-          <div key={index} className="p-6 bg-[#ffffffb3] rounded-2xl text-secondary space-y-5 ">
+          <div
+            key={index}
+            className="p-6 bg-[#ffffffb3] rounded-2xl text-secondary space-y-5 "
+          >
             <div>
               <span className="text-5xl">{step.icon}</span>
             </div>

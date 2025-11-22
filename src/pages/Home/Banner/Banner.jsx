@@ -18,6 +18,8 @@ const Banner = () => {
         showIndicators={false}
         stopOnHover={false}
       >
+
+
         <div className="relative">
           <img src={bannerImg1} />
           <p className="absolute text-[#606060] max-w-[629px] text-start left-20 bottom-20">
@@ -27,7 +29,7 @@ const Banner = () => {
           </p>
           <div className="absolute left-20 bottom-7 flex items-center gap-4">
             <div className="flex items-center">
-              <button className="btn bg-[#CAEB66] rounded-full shadow-none border-0">
+              <button className="btn bg-[#CAEB66] rounded-full shadow-none border border-black">
                 Track Your Parcel
               </button>
               <button className="p-2 bg-[#1f1f1f] rounded-full cursor-pointer">
@@ -36,11 +38,13 @@ const Banner = () => {
             </div>
             <div>
               <button className="btn rounded-lg shadow-none border-0">
-                Track Your Parcel
+                Be a Rider
               </button>
             </div>
           </div>
         </div>
+
+
         <div>
           <img src={bannerImg2} />
           <p className="absolute text-[#606060] max-w-[629px] text-start left-20 bottom-20">
@@ -50,7 +54,7 @@ const Banner = () => {
           </p>
           <div className="absolute left-20 bottom-7 flex items-center gap-4">
             <div className="flex items-center">
-              <button className="btn bg-[#CAEB66] rounded-full shadow-none border-0">
+              <button className="btn bg-[#CAEB66] rounded-full shadow-none border border-black">
                 Track Your Parcel
               </button>
               <button className="p-2 bg-[#1f1f1f] rounded-full cursor-pointer">
@@ -59,11 +63,13 @@ const Banner = () => {
             </div>
             <div>
               <button className="btn rounded-lg shadow-none border-0">
-                Track Your Parcel
+                Be a Rider
               </button>
             </div>
           </div>
         </div>
+
+
         <div>
           <img src={bannerImg3} />
           <p className="absolute text-[#606060] max-w-[629px] text-start left-20 bottom-20">
@@ -73,7 +79,7 @@ const Banner = () => {
           </p>
           <div className="absolute left-20 bottom-7 flex items-center gap-4">
             <div className="flex items-center">
-              <button className="btn bg-[#CAEB66] rounded-full shadow-none border-0">
+              <button className="btn bg-[#CAEB66] rounded-full shadow-none border border-black">
                 Track Your Parcel
               </button>
               <button className="p-2 bg-[#1f1f1f] rounded-full cursor-pointer">
@@ -82,7 +88,7 @@ const Banner = () => {
             </div>
             <div>
               <button className="btn rounded-lg shadow-none border-0">
-                Track Your Parcel
+                Be a Rider
               </button>
             </div>
           </div>

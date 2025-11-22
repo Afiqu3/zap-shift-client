@@ -1,8 +1,18 @@
-import React from "react";
-import Logo from "../../../components/Logo/Logo";
-import { NavLink } from "react-router";
+import React from 'react';
+import Logo from '../../../components/Logo/Logo';
+import { Link, NavLink } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
 
 const NavBar = () => {
+  const { user, signOutUser } = useAuth();
+
+  const handleLogOut = () => {
+    signOutUser()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const links = (
     <>
       <li>
@@ -29,13 +39,13 @@ const NavBar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
+                {' '}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />{' '}
               </svg>
             </div>
             <ul
@@ -45,15 +55,27 @@ const NavBar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
+          <span className="text-xl">
             <Logo></Logo>
-          </a>
+          </span>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
+
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user ? (
+            <a onClick={handleLogOut} className="btn">
+              Log Out
+            </a>
+          ) : (
+            <Link className="btn" to="/login">
+              Log in
+            </Link>
+          )}
+          <Link className="btn btn-primary text-black mx-4" to="/rider">
+            Be a Rider
+          </Link>
         </div>
       </div>
     </div>
