@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import useAuth from '../../../hooks/useAuth';
+import axios from 'axios';
 
 const Register = () => {
   const {
@@ -9,50 +11,53 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { createUser, updateUser } = useAuth();
 
   const handleRegistration = (data) => {
-    console.log('after register', data.photo[0]);
-    // const profileImg = data.photo[0];
+    // console.log(data)
+    // console.log('after register', data.photo[0]);
+    const profileImg = data.photo[0];
 
-    // registerUser(data.email, data.password)
-    //   .then((result) => {
-    //     console.log(result.user);
+    createUser(data.email, data.password)
+      .then(() => {
+        // console.log(result.user);
 
-    //     // 1. store the image in form data
-    //     const formData = new FormData();
-    //     formData.append('image', profileImg);
+        // 1. store the image in form data
+        const formData = new FormData();
+        formData.append('image', profileImg);
 
-    //     // 2. send the photo to store and get the ul
-    //     const image_API_URL = `https://api.imgbb.com/1/upload?key=${
-    //       import.meta.env.VITE_image_host_key
-    //     }`;
+        // 2. send the photo to store and get the ul
+        const imageAPIUrl = `https://api.imgbb.com/1/upload?key=
+            ${import.meta.env.VITE_IMAGE_HOST}`;
 
-    //     axios.post(image_API_URL, formData).then((res) => {
-    //       console.log('after image upload', res.data.data.url);
+        axios.post(imageAPIUrl, formData).then((res) => {
+          console.log('after image upload', res.data.data.url);
 
-    //       // update user profile to firebase
-    //       const userProfile = {
-    //         displayName: data.name,
-    //         photoURL: res.data.data.url,
-    //       };
+          // update user profile to firebase
+          const userProfile = {
+            displayName: data.name,
+            photoURL: res.data.data.url,
+          };
 
-    //       updateUserProfile(userProfile)
-    //         .then(() => {
-    //           console.log('user profile updated done.');
-    //           navigate(location.state || '/');
-    //         })
-    //         .catch((error) => console.log(error));
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+          updateUser(userProfile)
+            .then(() => {
+              console.log('profile updated successfully');
+            })
+            .catch((error) => [console.log(error)]);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="w-full mx-auto max-w-sm shrink-0">
       <h3 className="text-3xl font-extrabold">Create an Account</h3>
       <p className="">Register with ZapShift</p>
-      <form className="space-y-4 mt-3" onSubmit={handleSubmit(handleRegistration)}>
+      <form
+        className="space-y-4 mt-3"
+        onSubmit={handleSubmit(handleRegistration)}
+      >
         <fieldset className="fieldset">
           {/* name field */}
           <label className="label">Name</label>

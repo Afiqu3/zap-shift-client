@@ -1,10 +1,11 @@
-import React from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import bannerImg1 from "../../../assets/banner/banner1.png";
-import bannerImg2 from "../../../assets/banner/banner2.png";
-import bannerImg3 from "../../../assets/banner/banner3.png";
-import { MdOutlineArrowOutward } from "react-icons/md";
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import bannerImg1 from '../../../assets/banner/banner1.png';
+import bannerImg2 from '../../../assets/banner/banner2.png';
+import bannerImg3 from '../../../assets/banner/banner3.png';
+import { MdOutlineArrowOutward } from 'react-icons/md';
+import { Link } from 'react-router';
 
 const Banner = () => {
   return (
@@ -18,8 +19,6 @@ const Banner = () => {
         showIndicators={false}
         stopOnHover={false}
       >
-
-
         <div className="relative">
           <img src={bannerImg1} />
           <p className="absolute text-[#606060] max-w-[629px] text-start left-20 bottom-20">
@@ -37,13 +36,15 @@ const Banner = () => {
               </button>
             </div>
             <div>
-              <button className="btn rounded-lg shadow-none border-0">
+              <Link
+                to={'/rider'}
+                className="btn rounded-lg shadow-none border-0"
+              >
                 Be a Rider
-              </button>
+              </Link>
             </div>
           </div>
         </div>
-
 
         <div>
           <img src={bannerImg2} />
@@ -62,13 +63,15 @@ const Banner = () => {
               </button>
             </div>
             <div>
-              <button className="btn rounded-lg shadow-none border-0">
+              <Link
+                to={'/rider'}
+                className="btn rounded-lg shadow-none border-0"
+              >
                 Be a Rider
-              </button>
+              </Link>
             </div>
           </div>
         </div>
-
 
         <div>
           <img src={bannerImg3} />
@@ -87,9 +90,12 @@ const Banner = () => {
               </button>
             </div>
             <div>
-              <button className="btn rounded-lg shadow-none border-0">
+              <Link
+                to={'/rider'}
+                className="btn rounded-lg shadow-none border-0"
+              >
                 Be a Rider
-              </button>
+              </Link>
             </div>
           </div>
         </div>
